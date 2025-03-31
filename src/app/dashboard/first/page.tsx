@@ -15,7 +15,13 @@ interface DashboardData {
   }>;
 }
 
+async function waitFor(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export default async function FirstPage() {
+  await waitFor(400);
+
   const data: DashboardData = JSON.parse(
     await fs.readFile(
       path.join(process.cwd(), "data", "first-data.json"),
