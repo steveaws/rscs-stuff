@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
 
+export const dynamic = "force-dynamic";
+
 interface DashboardData {
   metrics: {
     users: { total: number; change: number };
