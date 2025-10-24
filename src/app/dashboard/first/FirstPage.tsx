@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import path from "path";
+import {waitFor} from "@/lib/helpers/timehelper"
 
 export const dynamic = "force-dynamic";
 
@@ -17,10 +18,6 @@ interface DashboardData {
     action: string;
     time: string;
   }>;
-}
-
-async function waitFor(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default async function FirstPage() {

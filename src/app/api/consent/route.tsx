@@ -1,4 +1,4 @@
-import {getConsentEntries} from "@/app/sitelib/Consent"
+import {getConsentEntries} from "@/lib/sitelib/Consent"
 import { cookies } from "next/headers"
 
 export async function GET(request: Request) {

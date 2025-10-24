@@ -10,7 +10,7 @@ export default function FirstPageLayout( {
 
     return <div className="flex flex-col">
         <FirstPage/>
-        <div className="space-y-6">{children}</div>
+        <div className="space-y-6 mt-6">{children}</div>
     </div>
 
 }
