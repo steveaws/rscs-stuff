@@ -1,0 +1,33 @@
+
+{
+  "patientConsents": [
+    {
+      "formId": "CF-001",
+      "description": "General Medical Treatment Consent",
+      "consentDate": "2024-01-15",
+      "patientId": "P12345",
+      "status": "SIGNED"
+    },
+    {
+      "formId": "CF-002", 
+      "description": "HIPAA Privacy Notice Acknowledgment",
+      "consentDate": "2024-01-15",
+      "patientId": "P12345",
+      "status": "SIGNED"
+    },
+    {
+      "formId": "CF-003",
+      "description": "Research Study Participation Consent",
+      "consentDate": "2024-01-14",
+      "patientId": "P12345",
+      "status": "DECLINED"
+    },
+    {
+      "formId": "CF-004",
+      "description": "Telemedicine Services Agreement",
+      "consentDate": "2024-01-15",
+      "patientId": "P12345",
+      "status": "SIGNED"
+    }
+  ]
+}
