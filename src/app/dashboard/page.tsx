@@ -6,7 +6,7 @@ export default function FirstPage() {
       </div>
 
       <div>
-        <h2 className="text-xl font-bold">Sup nerd? Have you subbed yet?</h2>
+        <h2 className="text-xl font-bold">Main content swapped here</h2>
       </div>
     </div>
   );
