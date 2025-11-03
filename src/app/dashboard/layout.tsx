@@ -1,45 +1,26 @@
-"use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Logout from "@/componentz/Logout";
+import Sidebar from "@/componentz/Sidebar";
+import { AuthGetCurrentUserServer } from "@/lib/utils/amplifyServerUtils";
 
-function Sidebar() {
-  const pathname = usePathname();
+ async function TopBar() {
 
-  const links = [
-    { href: "/dashboard/first", label: "First Page" },
-    { href: "/dashboard/second", label: "Second Page" },
-    { href: "/dashboard/third", label: "Third Page" },
-  ];
+  const user = await AuthGetCurrentUserServer();
+  const userId = user?.signInDetails?.loginId
+  const defUserId = (!userId) ? "": userId
 
   return (
-    <div className="w-64 min-h-screen bg-gray-800 text-white p-4">
-      <div className="mb-8">
-        <Link href="/dashboard">
-          <h1 className="text-xl font-bold">Admin Dashboard</h1>
-        </Link>
+    <div className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+      <div className="flex justify-end items-center">
+        <div className="flex items-center space-x-4">
+          {user && <Logout userId={defUserId}/> }
+        </div>
       </div>
-      <nav>
-        <ul className="space-y-2">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`block px-4 py-2 rounded-md transition-colors ${
-                  pathname === link.href
-                    ? "bg-gray-700 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
     </div>
   );
 }
+
+
 
 export default function DashboardLayout({
   children,
@@ -47,9 +28,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
-      <main className="flex-1 p-8">{children}</main>
+    <div className="min-h-screen bg-gray-100">
+      <TopBar />
+      <div className="flex">
+        <Sidebar />
+        <main className="flex-1 p-8">{children}</main>
+      </div>
     </div>
   );
 }
