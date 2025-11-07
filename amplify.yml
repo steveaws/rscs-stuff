@@ -13,7 +13,6 @@ frontend:
   phases:
     preBuild:
       commands:
-        - corepack enable
         - pnpm install --frozen-lockfile
     build:
       commands:
@@ -25,4 +24,4 @@ frontend:
   cache:
     paths:
       - .next/cache/**/*
-      - node_modules/**/*
+      - node_modules/.cache/**/*
