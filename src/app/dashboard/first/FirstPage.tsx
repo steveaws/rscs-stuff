@@ -1,5 +1,4 @@
 import fs from "fs/promises";
-import { cookies } from "next/headers";
 import Link from "next/link";
 import path from "path";
 import {waitFor} from "@/lib/helpers/timehelper"
@@ -21,8 +20,6 @@ interface DashboardData {
 }
 
 export default async function FirstPage() {
-  const cookieData = await cookies()
-  console.log("FirstPage() called", cookieData.size)
   await waitFor(400);
 
   const data: DashboardData = JSON.parse(
